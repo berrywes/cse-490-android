@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/productsTitle"
+            android:layout_width="165dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="20dp"
+            android:text="Products"
+            android:textSize="40sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/productsHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="22dp"
+            android:layout_marginLeft="22dp"
+            android:layout_marginTop="20dp"
+            android:text="Name"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/productsTitle" />
+
+        <TextView
+            android:id="@+id/priceHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="680dp"
+            android:layout_marginLeft="680dp"
+            android:layout_marginTop="24dp"
+            android:text="Price"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/productsHeader"
+            app:layout_constraintTop_toBottomOf="@+id/productsTitle" />
+
+        <TextView
+            android:id="@+id/priceHeader2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="972dp"
+            android:layout_marginLeft="972dp"
+            android:layout_marginTop="24dp"
+            android:text="Status"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/productsHeader"
+            app:layout_constraintTop_toBottomOf="@+id/productsTitle" />
+
+        <TextView
+            android:id="@+id/categoryHeader2"
+            android:layout_width="wrap_content"
+            android:layout_height="27dp"
+            android:layout_marginStart="272dp"
+            android:layout_marginLeft="272dp"
+            android:layout_marginTop="20dp"
+            android:text="Category"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/productsHeader"
+            app:layout_constraintTop_toBottomOf="@+id/productsTitle" />
+
+        <Button
+            android:id="@+id/addProductButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginRight="24dp"
+            android:text="Add Product"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"></android.support.v7.widget.RecyclerView>
+
+</LinearLayout>
