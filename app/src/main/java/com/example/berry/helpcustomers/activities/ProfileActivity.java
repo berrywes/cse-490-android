@@ -1,32 +1,42 @@
 package com.example.berry.helpcustomers.activities;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.example.berry.helpcustomers.R;
+import com.example.berry.helpcustomers.fragments.HomeFragment;
+import com.example.berry.helpcustomers.fragments.ProductsFragment;
+import com.example.berry.helpcustomers.fragments.SettingsFragment;
 import com.example.berry.helpcustomers.models.User;
 import com.example.berry.helpcustomers.storage.SharedPrefManager;
 
-public class ProfileActivity extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
-    private TextView textView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        // initialize textView
-        textView = findViewById(R.id.textView);
+        BottomNavigationView navigationView = findViewById(R.id.bottom_nav);
+        navigationView.setOnNavigationItemSelectedListener(this);
 
-        // call SharedPrefManager to get user and assign to user
-        User user = SharedPrefManager.getInstance(this).getUser();
-
-        // display welcome text and get name from user
-        textView.setText("Welcome back " + user.getName());
+        displayFragment(new HomeFragment());
     }
+
+    private void displayFragment(Fragment fragment) {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.relativeLayout, fragment)
+                .commit();
+    }
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -46,5 +56,27 @@ public class ProfileActivity extends AppCompatActivity {
         }
     }
 
-    }
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
+        Fragment fragment = null;
+
+        switch(item.getItemId()){
+            case R.id.menu_home:
+                fragment = new HomeFragment();
+                break;
+            case R.id.menu_products:
+                fragment = new ProductsFragment();
+                break;
+            case R.id.menu_settings:
+                fragment = new SettingsFragment();
+                break;
+        }
+
+        if(fragment != null){
+            displayFragment(fragment);
+        }
+
+        return false;
+    }
+}
