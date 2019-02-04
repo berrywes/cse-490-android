@@ -1,5 +1,6 @@
 package com.example.berry.helpcustomers.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,7 +14,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.berry.helpcustomers.R;
+import com.example.berry.helpcustomers.activities.LoginActivity;
+import com.example.berry.helpcustomers.activities.MainActivity;
 import com.example.berry.helpcustomers.api.RetrofitClient;
+import com.example.berry.helpcustomers.models.DefaultResponse;
 import com.example.berry.helpcustomers.models.LoginResponse;
 import com.example.berry.helpcustomers.models.User;
 import com.example.berry.helpcustomers.storage.SharedPrefManager;
@@ -117,8 +121,56 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
             }
         });
     }
+    private void updatePassword() {
+        String currentpassword = editTextCurrentPassword.getText().toString().trim();
+        String newpassword = editTextNewPassword.getText().toString().trim();
+
+        if(currentpassword.isEmpty()){
+            editTextCurrentPassword.setError("Current password required.");
+            editTextCurrentPassword.requestFocus();
+            return;
+        }
+        if(newpassword.isEmpty()){
+            editTextCurrentPassword.setError("Current password required.");
+            editTextCurrentPassword.requestFocus();
+            return;
+        }
+
+        User  user = SharedPrefManager.getInstance(getActivity()).getUser();
+
+        Call<DefaultResponse> call = RetrofitClient.getInstance().getApi()
+                .updatePassword(
+                        currentpassword,
+                        newpassword,
+                        user.getEmail());
+
+        call.enqueue(new Callback<DefaultResponse>() {
+            @Override
+            public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
+                Log.e("UpdatePassword", "Response successful");
+                Log.e("UpdatePassword", response.toString());
 
 
+                Toast.makeText(getActivity(), "Success", Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onFailure(Call<DefaultResponse> call, Throwable t) {
+            Log.e("UpdatePassword", "Response failed");
+                Log.e("UpdatePassword", t.toString());
+
+            }
+        });
+    }
+
+    private void logout() {
+        SharedPrefManager.getInstance(getActivity()).clear();
+        Intent intent = new Intent(getActivity(), LoginActivity.class);
+
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+        startActivity(intent);
+    }
     @Override
     public void onClick(View v) {
         switch(v.getId()){
@@ -126,11 +178,18 @@ public class SettingsFragment extends Fragment implements View.OnClickListener {
                 updateProfile();
                 break;
             case R.id.buttonChangePassword:
+                updatePassword();
                 break;
             case R.id.buttonLogout:
+                logout();
+
                 break;
             case R.id.buttonDelete:
                 break;
         }
     }
+
+
+
+
 }

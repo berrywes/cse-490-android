@@ -7,9 +7,10 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.TextView;
+import android.view.View;
 
 import com.example.berry.helpcustomers.R;
+import com.example.berry.helpcustomers.fragments.AddProductFragment;
 import com.example.berry.helpcustomers.fragments.HomeFragment;
 import com.example.berry.helpcustomers.fragments.ProductsFragment;
 import com.example.berry.helpcustomers.fragments.SettingsFragment;
@@ -18,19 +19,21 @@ import com.example.berry.helpcustomers.storage.SharedPrefManager;
 
 public class ProfileActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
+    //private TextView textView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)  {
+    protected void onCreate(Bundle savedInstanceState)    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        // initialize bottom menu navigation
         BottomNavigationView navigationView = findViewById(R.id.bottom_nav);
         navigationView.setOnNavigationItemSelectedListener(this);
 
         displayFragment(new HomeFragment());
     }
 
-    private void displayFragment(Fragment fragment) {
+    private void displayFragment(Fragment fragment){
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.relativeLayout, fragment)
@@ -57,11 +60,11 @@ public class ProfileActivity extends AppCompatActivity implements BottomNavigati
     }
 
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 
         Fragment fragment = null;
 
-        switch(item.getItemId()){
+        switch(menuItem.getItemId()){
             case R.id.menu_home:
                 fragment = new HomeFragment();
                 break;
@@ -71,12 +74,25 @@ public class ProfileActivity extends AppCompatActivity implements BottomNavigati
             case R.id.menu_settings:
                 fragment = new SettingsFragment();
                 break;
-        }
 
+        }
         if(fragment != null){
             displayFragment(fragment);
         }
 
         return false;
     }
+
+    public void onClick(View v) {
+        Fragment fragment = null;
+        switch(v.getId()){
+            case R.id.addProductButton:
+                fragment = new AddProductFragment();
+                break;
+        }
+        if(fragment!=null){
+            displayFragment(fragment);
+        }
+    }
 }
+

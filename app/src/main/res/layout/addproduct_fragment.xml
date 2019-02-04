@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="75dp"
         android:layout_marginLeft="75dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="45dp"
         android:text="Add Product"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,12 +22,11 @@
         android:id="@+id/editTextProductName"
         android:layout_width="601dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginLeft="150dp"
         android:layout_marginTop="35dp"
         android:width="600dp"
         android:ems="10"
-        android:hint="Product Name"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="@+id/addProductTitle"
         app:layout_constraintTop_toBottomOf="@+id/addProductTitle" />
@@ -39,7 +38,6 @@
         android:layout_marginTop="20dp"
         android:width="600dp"
         android:ems="10"
-        android:hint="Category"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="@+id/editTextProductName"
         app:layout_constraintTop_toBottomOf="@+id/editTextProductName" />
@@ -51,7 +49,6 @@
         android:layout_marginTop="20dp"
         android:width="600dp"
         android:ems="10"
-        android:hint="Description"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="@+id/editTextProductPrice"
         app:layout_constraintTop_toBottomOf="@+id/editTextProductPrice" />
@@ -63,7 +60,6 @@
         android:layout_marginTop="20dp"
         android:width="600dp"
         android:ems="10"
-        android:hint="Location"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="@+id/editTextProductDescription"
         app:layout_constraintTop_toBottomOf="@+id/editTextProductDescription" />
@@ -75,7 +71,6 @@
         android:layout_marginTop="20dp"
         android:width="600dp"
         android:ems="10"
-        android:hint="Availability"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="@+id/editTextProductDescription"
         app:layout_constraintTop_toBottomOf="@+id/editTextProductLocation" />
@@ -87,7 +82,6 @@
         android:layout_marginTop="20dp"
         android:width="150dp"
         android:ems="10"
-        android:hint="Price"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="@+id/editTextProductCategory"
         app:layout_constraintTop_toBottomOf="@+id/editTextProductCategory" />
@@ -96,7 +90,7 @@
         android:id="@+id/buttonAddProduct"
         android:layout_width="wrap_content"
         android:layout_height="42dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
         android:width="200dp"
         android:height="50dp"
         android:background="@color/colorPrimary"
@@ -118,4 +112,65 @@
         android:text="Cancel"
         app:layout_constraintStart_toEndOf="@+id/buttonAddProduct"
         app:layout_constraintTop_toBottomOf="@+id/editTextAvailability" />
+
+    <TextView
+        android:id="@+id/productNameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Name"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/addProductTitle"
+        app:layout_constraintTop_toTopOf="@+id/editTextProductName" />
+
+    <TextView
+        android:id="@+id/productCategoryLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Category"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/addProductTitle"
+        app:layout_constraintTop_toTopOf="@+id/editTextProductCategory" />
+
+    <TextView
+        android:id="@+id/productPriceLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Price"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/addProductTitle"
+        app:layout_constraintTop_toTopOf="@+id/editTextProductPrice" />
+
+    <TextView
+        android:id="@+id/productDescripitionLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Descripition"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/addProductTitle"
+        app:layout_constraintTop_toTopOf="@+id/editTextProductDescription" />
+
+    <TextView
+        android:id="@+id/productLocationLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Location"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/addProductTitle"
+        app:layout_constraintTop_toTopOf="@+id/editTextProductLocation" />
+
+    <TextView
+        android:id="@+id/productLocationLabel2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Availability"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/addProductTitle"
+        app:layout_constraintTop_toTopOf="@+id/editTextAvailability" />
+
 </android.support.constraint.ConstraintLayout>

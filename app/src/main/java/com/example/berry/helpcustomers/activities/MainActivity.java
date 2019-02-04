@@ -3,6 +3,7 @@ package com.example.berry.helpcustomers.activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
@@ -91,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // determine if password length is greater than 6 characters - if yes, display error
         if(password.length() < 6){
-            editTextPassword.setError("Password needs to be atlead 6 characters");
+            editTextPassword.setError("Password needs to be atleast 6 characters");
             editTextPassword.requestFocus();
             return;
 
@@ -114,10 +115,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         call.enqueue(new Callback<DefaultResponse>() {
             @Override
             public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
-
+                Log.e("Error1", "error");
             // response code indicates registration was successful
             if(response.code() == 201) {
                 DefaultResponse dr = response.body();
+
                 Toast.makeText(MainActivity.this, dr.getMsg(), Toast.LENGTH_LONG).show();
 
                 // initialize and assign intent to start ProfileActivity
@@ -131,7 +133,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             // if response code is 422 display "user already exists" toast message
             } else if (response.code() == 422){
-                Toast.makeText(MainActivity.this, "User already exists",
+                Toast.makeText(MainActivity.this, "There was an error",
                         Toast.LENGTH_LONG).show();
 
             }
@@ -140,7 +142,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // if api call fails, display error toast
             @Override
             public void onFailure(Call<DefaultResponse> call, Throwable t) {
-                Toast.makeText(MainActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this,"error", Toast.LENGTH_LONG).show();
             }
         });
     }

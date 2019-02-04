@@ -7,9 +7,12 @@
     android:layout_height="wrap_content">
 
     <android.support.v7.widget.CardView
-        android:layout_margin="3dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp">
 
 
         <android.support.constraint.ConstraintLayout
@@ -18,13 +21,16 @@
             android:padding="15dp">
 
             <TextView
-                android:id="@+id/textViewName"
+                android:id="@+id/textViewNameProduct"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
+                android:width="400dp"
+                android:maxWidth="400dp"
+                android:minWidth="400dp"
                 android:text="Product"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
                 android:textSize="17sp"
@@ -36,45 +42,64 @@
                 android:id="@+id/textViewCategory"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginStart="204dp"
-                android:layout_marginLeft="204dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
+                android:width="350dp"
+                android:maxWidth="350dp"
+                android:minWidth="350dp"
                 android:text="Category"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
                 android:textSize="17sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textViewName"
+                app:layout_constraintStart_toEndOf="@+id/textViewNameProduct"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/textViewPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginStart="592dp"
-                android:layout_marginLeft="592dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
+                android:width="100dp"
+                android:maxWidth="100dp"
+                android:minWidth="100dp"
                 android:text="Price"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
                 android:textSize="17sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textViewName"
+                app:layout_constraintStart_toEndOf="@+id/textViewCategory"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/textViewStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginStart="896dp"
-                android:layout_marginLeft="896dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginRight="30dp"
                 android:layout_marginBottom="8dp"
                 android:text="Status"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Headline"
                 android:textSize="17sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textViewName"
+                app:layout_constraintEnd_toStartOf="@+id/editProductButton"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/editProductButton"
+                android:layout_width="97dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="edit"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </android.support.constraint.ConstraintLayout>

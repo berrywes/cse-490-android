@@ -109,9 +109,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                 // convert response to body and cast to LoginResponse class
                 LoginResponse loginResponse = response.body();
-
+                Log.e("LoginResponse", String.valueOf(loginResponse));
                 // determine if there is an error
-                if (!loginResponse.isError()) {
+                if (response.code() == 202) {
 
                     // call SharedPrefManager from current instance - get user from loginResponse
                     // by calling getUser method from LoginResponse.java class then call saveUser
@@ -128,9 +128,21 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     // start ProfileActivity
                     startActivity(intent);
 
-                } // else executes if an error occurred - display toast
-                else {
-                    Toast.makeText(LoginActivity.this, "An error occured",
+                }else if(response.code() == 401){
+                    Toast.makeText(LoginActivity.this, "An error occurred",
+                            Toast.LENGTH_LONG).show();
+                }
+
+                // else executes if an error occurred - display toast
+                else if(response.code() == 402){
+                    Toast.makeText(LoginActivity.this, "Incorrect password.",
+                            Toast.LENGTH_LONG).show();
+                }else if(response.code() == 403){
+                    Toast.makeText(LoginActivity.this, "Incorrect email.",
+                            Toast.LENGTH_LONG).show();
+                }
+                else{
+                    Toast.makeText(LoginActivity.this, "There was an error.",
                             Toast.LENGTH_LONG).show();
                 }
             }

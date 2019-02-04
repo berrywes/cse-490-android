@@ -7,11 +7,11 @@
     tools:context=".activities.ProfileActivity">
 
     <RelativeLayout
+
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="55dp">
-
 
     </RelativeLayout>
 
@@ -23,7 +23,7 @@
         android:layout_alignParentBottom="true"
         android:background="@color/colorPrimary"
         app:itemIconTint="#ffffff"
-        app:itemTextColor="@color/colorPrimaryDark"
+        app:itemTextColor="@android:color/white"
         app:menu="@menu/bottom_menu" />
 
 </RelativeLayout>

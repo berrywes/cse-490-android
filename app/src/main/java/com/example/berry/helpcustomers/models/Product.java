@@ -1,30 +1,33 @@
 package com.example.berry.helpcustomers.models;
 
+import android.util.Log;
+
 public class Product {
 
     // initialize variables
-    private int product_id;
+    private int id;
     private String name, category, price, description, location, status;
 
     // constructor method: parameters are response data from API user sub-array
 
 
-    public Product(int product_id, String name, String category, String price, String description, String location, String status) {
-        this.product_id = product_id;
+    public Product(int id, String name, String category, String price, String description, String location, String status) {
+        this.id = id;
         this.name = name;
         this.category = category;
         this.price = price;
         this.description = description;
         this.location = location;
         this.status = status;
+
     }
 
     public int getProduct_id() {
-        return product_id;
+        return id;
     }
 
     public void setProduct_id(int product_id) {
-        this.product_id = product_id;
+        this.id = product_id;
     }
 
     public String getName() {
