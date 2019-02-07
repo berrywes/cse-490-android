@@ -150,7 +150,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             // if the API call fails log error and display error toast
             @Override
             public void onFailure(Call<LoginResponse> call, Throwable t) {
-                Log.e("api error", "t.getMessage()");
+                Log.e("API fail1", t.getMessage());
+                Log.e("API fail2", String.valueOf(t));
+
                 Toast.makeText(LoginActivity.this, t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });

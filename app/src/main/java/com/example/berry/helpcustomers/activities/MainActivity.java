@@ -142,6 +142,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // if api call fails, display error toast
             @Override
             public void onFailure(Call<DefaultResponse> call, Throwable t) {
+                Log.e("API fail", String.valueOf(t));
                 Toast.makeText(MainActivity.this,"error", Toast.LENGTH_LONG).show();
             }
         });

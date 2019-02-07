@@ -3,6 +3,7 @@
     package="com.example.berry.helpcustomers">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <application
         android:allowBackup="true"
@@ -24,7 +25,8 @@
         <activity
             android:name=".activities.CustomerModeActivity"
             android:label="@string/title_activity_customer_mode"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme">
+        </activity>
     </application>
 
 </manifest>

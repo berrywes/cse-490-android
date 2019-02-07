@@ -84,4 +84,12 @@ public interface Api {
             @Field("status") String status
     );
 
+
+    @GET("searchproducts/{user_id}/{query}/")
+    Call<ProductsResponse> searchProducts(
+            @Path("user_id") int user_id,
+            @Path("query") String query
+    );
+
+
 }

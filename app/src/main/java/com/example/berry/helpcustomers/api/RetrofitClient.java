@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitClient {
 
     // initalize variables - assign BASE_URL to slim framework application location URL
-    private static final String BASE_URL = "http://192.168.1.2/cse-490-php/public/";
+    private static final String BASE_URL = "http://192.168.1.4/cse-490-php/public/";
     private static RetrofitClient mInstance;
     private Retrofit retrofit;
 
